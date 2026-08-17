@@ -3,298 +3,1509 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>XV Años | Edgliamnys A. Fragoza M.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Cinzel', serif;
-    background:#000;
-    color:white;
-    text-align:center;
-    overflow-x:hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-.hero{
-    min-height:100vh;
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: 'Cinzel', serif;
+    overflow-x: hidden;
+}
+
+/* Fondo */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
     background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
-    url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(130, 0, 0, 0.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 0, 0, 0.10),
+            transparent 30%
+        );
+
+    pointer-events: none;
+    z-index: -1;
 }
 
-h1{
-    font-family:'Great Vibes', cursive;
-    font-size:4rem;
-    color:#ff3b3b;
+
+/* =========================================
+   PÉTALOS
+========================================= */
+
+.petal {
+    position: fixed;
+    top: -30px;
+
+    width: 9px;
+    height: 14px;
+
+    background: #a40000;
+
+    border-radius: 100% 0 100% 0;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    animation: caer linear infinite;
 }
 
-h2{
-    font-family:'Great Vibes', cursive;
-    font-size:3rem;
-    color:#ff3b3b;
-    margin-bottom:20px;
+@keyframes caer {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
 }
 
-.fecha{
-    font-size:1.2rem;
-    margin-top:15px;
+
+/* =========================================
+   MÚSICA
+========================================= */
+
+#botonMusica {
+
+    position: fixed;
+
+    bottom: 20px;
+    right: 20px;
+
+    z-index: 9999;
+
+    padding: 14px 22px;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5c0000,
+            #d71920
+        );
+
+    color: white;
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255,0,0,0.45),
+        0 0 30px rgba(255,0,0,0.15);
+
+    transition: 0.3s;
 }
 
-.padres{
-    margin-top:20px;
-    line-height:2;
+#botonMusica:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,0.7),
+        0 0 40px rgba(255,0,0,0.25);
 }
 
-.contador{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:35px;
+
+/* =========================================
+   PORTADA
+========================================= */
+
+.portada {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(100,0,0,0.35),
+            transparent 55%
+        ),
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.95)
+        );
 }
 
-.box{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.2);
-    padding:20px;
-    width:90px;
-    border-radius:15px;
+
+/* Marco */
+
+.portada::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border: 1px solid rgba(255,0,0,0.25);
+
+    pointer-events: none;
 }
 
-.box span{
-    font-size:2rem;
-    color:#ff3b3b;
-    font-weight:bold;
+
+/* =========================================
+   TEXTO PORTADA
+========================================= */
+
+.xv {
+
+    font-size: 18px;
+
+    letter-spacing: 8px;
+
+    color: #dddddd;
+
+    margin-bottom: 20px;
 }
 
-section{
-    padding:80px 20px;
+.nombre {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(
+        4.5rem,
+        13vw,
+        8rem
+    );
+
+    line-height: 0.95;
+
+    color: #d71920;
+
+    text-shadow:
+        0 0 10px rgba(255,0,0,0.25),
+        0 0 35px rgba(255,0,0,0.18);
 }
 
-.card{
-    max-width:800px;
-    margin:auto;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    padding:35px;
-    border-radius:25px;
+.apellido {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(
+        3rem,
+        9vw,
+        5.5rem
+    );
+
+    color: white;
+
+    margin-top: 10px;
 }
 
-.btn{
-    display:inline-block;
-    margin:10px;
-    padding:15px 35px;
-    background:#ff3b3b;
-    color:white;
-    text-decoration:none;
-    border-radius:50px;
-    transition:.3s;
+.frase {
+
+    max-width: 650px;
+
+    margin-top: 35px;
+
+    color: #cccccc;
+
+    font-size: 13px;
+
+    line-height: 2;
 }
 
-.btn:hover{
-    transform:scale(1.05);
+.fecha {
+
+    margin-top: 35px;
+
+    color: white;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
 }
 
-.texto{
-    line-height:2;
-    max-width:850px;
-    margin:auto;
+.fecha strong {
+
+    color: #e21b23;
 }
 
-.rojo{
-    color:#ff3b3b;
-    font-weight:bold;
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+section {
+
+    padding: 90px 20px;
+
+    text-align: center;
 }
 
-footer{
-    padding:40px;
-    background:#111;
+.contenedor {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
 }
+
+.subtitulo {
+
+    color: #888888;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+}
+
+.titulo {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(
+        3.5rem,
+        9vw,
+        5.5rem
+    );
+
+    color: #d71920;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.card {
+
+    padding: 40px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,0,0,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.55);
+}
+
+
+/* =========================================
+   PADRES
+========================================= */
+
+.padres {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 70px;
+
+    margin-top: 35px;
+}
+
+.padre {
+
+    min-width: 200px;
+}
+
+.padre span {
+
+    display: block;
+
+    color: #888;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.padre strong {
+
+    font-size: 18px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   CUENTA REGRESIVA
+========================================= */
+
+.contador {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.tiempo {
+
+    width: 90px;
+
+    height: 90px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(255,0,0,0.035);
+
+    border: 1px solid rgba(255,0,0,0.30);
+
+    border-radius: 18px;
+}
+
+.numero {
+
+    color: #e21b23;
+
+    font-size: 27px;
+
+    font-weight: 600;
+}
+
+.etiqueta {
+
+    color: #999;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.botones {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.boton {
+
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b0000,
+            #d71920
+        );
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition: 0.3s;
+}
+
+.boton:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255,0,0,0.25);
+}
+
+
+/* WhatsApp */
+
+.whatsapp {
+
+    background:
+        linear-gradient(
+            135deg,
+            #087c38,
+            #18a957
+        );
+}
+
+.whatsapp:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0a9143,
+            #20c467
+        );
+}
+
+
+/* =========================================
+   RECEPCIÓN
+========================================= */
+
+.icono {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.lugar {
+
+    font-size: 22px;
+
+    font-weight: 500;
+}
+
+.info {
+
+    color: #999;
+
+    line-height: 2;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   VESTIMENTA
+========================================= */
+
+.vestimenta-iconos {
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+.rojo {
+
+    color: #e21b23;
+
+    font-weight: 700;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   SOBRE
+========================================= */
+
+.sobre {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(100,0,0,0.25),
+            transparent 60%
+        );
+}
+
+.final-nombre {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(
+        4rem,
+        13vw,
+        8rem
+    );
+
+    color: #d71920;
+
+    text-shadow:
+        0 0 20px rgba(255,0,0,0.2);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    padding: 40px 20px;
+
+    background: #030303;
+
+    color: #777;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+.revelar {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.revelar.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media(max-width:600px) {
+
+    section {
+
+        padding: 70px 15px;
+    }
+
+    .padres {
+
+        gap: 35px;
+    }
+
+    .tiempo {
+
+        width: 76px;
+
+        height: 76px;
+    }
+
+    .numero {
+
+        font-size: 21px;
+    }
+
+    #botonMusica {
+
+        bottom: 15px;
+
+        right: 15px;
+
+        padding: 12px 16px;
+
+        font-size: 10px;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
 
-<section class="hero">
 
-<h1>Mis XV Años</h1>
+<!-- =========================================
+     MÚSICA
+     
+     IMPORTANTE:
+     photograph.mp3 está en la raíz
+     del repositorio.
+========================================= -->
 
-<p style="font-size:1.4rem;margin-top:20px;">
-Edgliamnys A. Fragoza M.
-</p>
+<audio
+    id="musica"
+    loop
+    preload="auto">
 
-<div class="fecha">
-📅 5 de Septiembre de 2026<br>
-🕣 8:30 PM
+    <source
+        src="photograph.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<button
+    id="botonMusica"
+    onclick="toggleMusica()">
+
+    🎵 Reproducir música
+
+</button>
+
+
+<!-- =========================================
+     PÉTALOS
+========================================= -->
+
+<div
+    class="petal"
+    style="left:5%;animation-duration:9s;">
 </div>
 
-<div class="padres">
-Con la bendición de Dios y el amor de mis padres<br><br>
-
-❤️ Helen Morillo<br>
-❤️ Alexander Fragoza
+<div
+    class="petal"
+    style="left:15%;animation-duration:12s;animation-delay:2s;">
 </div>
 
-<div class="contador">
-
-<div class="box">
-<span id="dias">00</span>
-<p>Días</p>
+<div
+    class="petal"
+    style="left:28%;animation-duration:10s;animation-delay:4s;">
 </div>
 
-<div class="box">
-<span id="horas">00</span>
-<p>Horas</p>
+<div
+    class="petal"
+    style="left:42%;animation-duration:14s;animation-delay:1s;">
 </div>
 
-<div class="box">
-<span id="minutos">00</span>
-<p>Min</p>
+<div
+    class="petal"
+    style="left:57%;animation-duration:11s;animation-delay:5s;">
 </div>
 
-<div class="box">
-<span id="segundos">00</span>
-<p>Seg</p>
+<div
+    class="petal"
+    style="left:70%;animation-duration:13s;animation-delay:3s;">
 </div>
 
+<div
+    class="petal"
+    style="left:82%;animation-duration:10s;animation-delay:6s;">
 </div>
 
-</section>
+<div
+    class="petal"
+    style="left:94%;animation-duration:15s;animation-delay:2s;">
+</div>
+
+
+<!-- =========================================
+     PORTADA
+========================================= -->
+
+<header class="portada">
+
+    <div class="xv">
+        MIS XV AÑOS
+    </div>
+
+    <div class="nombre">
+        Edgliamnys
+    </div>
+
+    <div class="apellido">
+        A. Fragoza M.
+    </div>
+
+    <p class="frase">
+
+        Con la bendición de Dios y el amor
+        de mis padres, tengo el honor de
+        invitarte a celebrar conmigo
+        una noche muy especial.
+
+    </p>
+
+    <div class="fecha">
+
+        <strong>05</strong>
+        · SEPTIEMBRE ·
+        <strong>2026</strong>
+
+        <br><br>
+
+        8:30 PM
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     PADRES
+========================================= -->
 
 <section>
 
-<div class="card">
+    <div class="contenedor revelar">
 
-<h2>La Recepción</h2>
+        <div class="subtitulo">
+            Con mucho amor
+        </div>
 
-<p>
-Club La Principal
-</p>
+        <div class="titulo">
+            Mis Padres
+        </div>
 
-<br>
+        <div class="card">
 
-<a class="btn" href="#" target="_blank">
-📍 Ver Ubicación
-</a>
+            <p
+                style="
+                color:#cccccc;
+                line-height:2;
+                ">
 
-</div>
+                Con la bendición de Dios y el
+                amor de mis padres, quiero
+                compartir contigo este momento
+                tan importante de mi vida.
+
+            </p>
+
+
+            <div class="padres">
+
+                <div class="padre">
+
+                    <span>
+                        MADRE
+                    </span>
+
+                    <strong>
+                        Helen Morillo
+                    </strong>
+
+                </div>
+
+
+                <div class="padre">
+
+                    <span>
+                        PADRE
+                    </span>
+
+                    <strong>
+                        Alexander Fragoza
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- =========================================
+     CUENTA REGRESIVA
+========================================= -->
 
 <section>
 
-<div class="texto">
+    <div class="contenedor revelar">
 
-<h2>¿Asistirás?</h2>
+        <div class="subtitulo">
+            Falta muy poco
+        </div>
 
-<p>
-Será increíble contar con tu presencia.
-<br>
-Por favor confirma tu asistencia.
-</p>
+        <div class="titulo">
+            Cuenta Regresiva
+        </div>
 
-<br>
 
-<a class="btn"
-href="https://wa.me/529611160683?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Edgliamnys">
-CONFIRMAR
-</a>
+        <div class="contador">
 
-</div>
+            <div class="tiempo">
+
+                <div
+                    class="numero"
+                    id="dias">
+                    00
+                </div>
+
+                <div class="etiqueta">
+                    DÍAS
+                </div>
+
+            </div>
+
+
+            <div class="tiempo">
+
+                <div
+                    class="numero"
+                    id="horas">
+                    00
+                </div>
+
+                <div class="etiqueta">
+                    HORAS
+                </div>
+
+            </div>
+
+
+            <div class="tiempo">
+
+                <div
+                    class="numero"
+                    id="minutos">
+                    00
+                </div>
+
+                <div class="etiqueta">
+                    MINUTOS
+                </div>
+
+            </div>
+
+
+            <div class="tiempo">
+
+                <div
+                    class="numero"
+                    id="segundos">
+                    00
+                </div>
+
+                <div class="etiqueta">
+                    SEGUNDOS
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- =========================================
+     RECEPCIÓN
+========================================= -->
 
 <section>
 
-<div class="card">
+    <div class="contenedor revelar">
 
-<h2>Lluvia de Sobres</h2>
+        <div class="subtitulo">
+            Celebremos juntos
+        </div>
 
-<p>
-Tu presencia es mi mejor regalo,
-pero si deseas tener un detalle conmigo,
-agradeceré tu muestra de cariño mediante lluvia de sobres.
-</p>
+        <div class="titulo">
+            Recepción
+        </div>
 
-</div>
+
+        <div class="card">
+
+            <div class="icono">
+                📍
+            </div>
+
+            <div class="lugar">
+                Club La Principal
+            </div>
+
+            <div class="info">
+
+                5 de septiembre de 2026
+
+                <br>
+
+                8:30 PM
+
+            </div>
+
+
+            <div class="botones">
+
+                <!--
+                CAMBIA ESTE ENLACE CUANDO
+                TENGAS LA UBICACIÓN EXACTA
+                -->
+
+                <a
+                    class="boton"
+                    href="https://www.google.com/maps/search/?api=1&query=Club%20La%20Principal"
+                    target="_blank">
+
+                    📍 VER UBICACIÓN
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- =========================================
+     CONFIRMACIÓN
+========================================= -->
 
 <section>
 
-<div class="card">
+    <div class="contenedor revelar">
 
-<h2>Vestimenta</h2>
+        <div class="subtitulo">
+            Tu presencia es importante
+        </div>
 
-<p>
-Elegante 👗🤵
-</p>
+        <div class="titulo">
+            ¿Nos acompañas?
+        </div>
 
-<br>
 
-<p>
-Color reservado para la quinceañera:
-<span class="rojo">ROJO ❤️</span>
-</p>
+        <div class="card">
 
-</div>
+            <p
+                style="
+                color:#cccccc;
+                line-height:2;
+                ">
+
+                Será un honor compartir contigo
+                este momento tan especial.
+
+                <br><br>
+
+                Por favor confirma tu asistencia
+                por WhatsApp.
+
+            </p>
+
+
+            <div class="botones">
+
+                <a
+                    class="boton whatsapp"
+                    href="https://wa.me/529611160683?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Edgliamnys."
+                    target="_blank">
+
+                    💬 CONFIRMAR POR WHATSAPP
+
+                </a>
+
+            </div>
+
+
+            <p
+                style="
+                color:#888;
+                margin-top:20px;
+                ">
+
+                +52 961 116 0683
+
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- =========================================
+     VESTIMENTA
+========================================= -->
 
 <section>
 
-<h2>Gracias por acompañarme</h2>
+    <div class="contenedor revelar">
 
-<p>
-Te espero para compartir una noche inolvidable.
-</p>
+        <div class="subtitulo">
+            Código de vestimenta
+        </div>
 
-<br>
+        <div class="titulo">
+            Vestimenta
+        </div>
 
-<h1 style="font-size:3rem;">
-Edgliamnys
-</h1>
+
+        <div class="card">
+
+            <div class="vestimenta-iconos">
+                👗 🤵
+            </div>
+
+            <h3>
+                Elegante
+            </h3>
+
+
+            <p
+                style="
+                color:#bbbbbb;
+                line-height:2;
+                margin-top:20px;
+                ">
+
+                Para esta noche tan especial,
+                te invitamos a vestir elegantemente.
+
+            </p>
+
+
+            <p class="rojo">
+
+                ❤️ EL COLOR ROJO ESTÁ RESERVADO
+                PARA LA QUINCEAÑERA ❤️
+
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- =========================================
+     LLUVIA DE SOBRES
+========================================= -->
+
+<section>
+
+    <div class="contenedor revelar">
+
+        <div class="subtitulo">
+            Un pequeño detalle
+        </div>
+
+        <div class="titulo">
+            Lluvia de Sobres
+        </div>
+
+
+        <div class="card">
+
+            <div class="sobre">
+                💌
+            </div>
+
+            <p
+                style="
+                color:#cccccc;
+                line-height:2;
+                ">
+
+                Tu presencia es el mejor regalo
+                que podría recibir.
+
+                <br><br>
+
+                Pero si deseas tener un detalle
+                conmigo, agradeceré mucho tu
+                muestra de cariño mediante
+                lluvia de sobres.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     MENSAJE FINAL
+========================================= -->
+
+<section class="final">
+
+    <div class="subtitulo">
+        Te espero para celebrar
+    </div>
+
+
+    <div class="final-nombre">
+        Edgliamnys
+    </div>
+
+
+    <p
+        style="
+        max-width:600px;
+        color:#aaaaaa;
+        line-height:2;
+        margin-top:20px;
+        ">
+
+        Gracias por formar parte de uno de los
+        momentos más importantes de mi vida.
+
+    </p>
+
+
+    <div
+        style="
+        margin-top:30px;
+        color:#d71920;
+        letter-spacing:5px;
+        ">
+
+        XV · 2026
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
-XV Años 2026 ✨
+
+    EDGLIAMNYS A. FRAGOZA M.
+
+    <br><br>
+
+    MIS XV AÑOS · 05 SEPTIEMBRE 2026
+
 </footer>
+
 
 <script>
 
-const fechaEvento = new Date("September 5, 2026 20:30:00").getTime();
 
-setInterval(() => {
+/* =========================================
+   CUENTA REGRESIVA
+========================================= */
 
-const ahora = new Date().getTime();
-const diferencia = fechaEvento - ahora;
+const fechaEvento =
+    new Date(
+        "2026-09-05T20:30:00"
+    ).getTime();
 
-const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-document.getElementById("dias").innerHTML = dias;
-document.getElementById("horas").innerHTML = horas;
-document.getElementById("minutos").innerHTML = minutos;
-document.getElementById("segundos").innerHTML = segundos;
+function actualizarCuenta() {
 
-},1000);
+    const ahora =
+        new Date().getTime();
+
+    const diferencia =
+        fechaEvento - ahora;
+
+
+    if (diferencia <= 0) {
+
+        document.getElementById("dias")
+            .textContent = "00";
+
+        document.getElementById("horas")
+            .textContent = "00";
+
+        document.getElementById("minutos")
+            .textContent = "00";
+
+        document.getElementById("segundos")
+            .textContent = "00";
+
+        return;
+    }
+
+
+    const dias =
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const horas =
+        Math.floor(
+            (
+                diferencia %
+                (1000 * 60 * 60 * 24)
+            )
+            /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutos =
+        Math.floor(
+            (
+                diferencia %
+                (1000 * 60 * 60)
+            )
+            /
+            (1000 * 60)
+        );
+
+
+    const segundos =
+        Math.floor(
+            (
+                diferencia %
+                (1000 * 60)
+            )
+            /
+            1000
+        );
+
+
+    document.getElementById("dias")
+        .textContent =
+        String(dias).padStart(2, "0");
+
+
+    document.getElementById("horas")
+        .textContent =
+        String(horas).padStart(2, "0");
+
+
+    document.getElementById("minutos")
+        .textContent =
+        String(minutos).padStart(2, "0");
+
+
+    document.getElementById("segundos")
+        .textContent =
+        String(segundos).padStart(2, "0");
+}
+
+
+actualizarCuenta();
+
+setInterval(
+    actualizarCuenta,
+    1000
+);
+
+
+/* =========================================
+   MÚSICA
+========================================= */
+
+const musica =
+    document.getElementById("musica");
+
+const botonMusica =
+    document.getElementById("botonMusica");
+
+
+function toggleMusica() {
+
+    if (musica.paused) {
+
+        musica.play()
+
+        .then(function() {
+
+            botonMusica.innerHTML =
+                "⏸️ Pausar música";
+
+        })
+
+        .catch(function(error) {
+
+            console.log(
+                "Error de música:",
+                error
+            );
+
+            alert(
+                "No se pudo reproducir la música. " +
+                "Verifica que el archivo photograph.mp3 " +
+                "esté en la misma carpeta que index.html."
+            );
+
+        });
+
+    }
+
+    else {
+
+        musica.pause();
+
+        botonMusica.innerHTML =
+            "🎵 Reproducir música";
+    }
+}
+
+
+/* =========================================
+   ANIMACIONES AL BAJAR
+========================================= */
+
+const elementos =
+    document.querySelectorAll(
+        ".revelar"
+    );
+
+
+const observador =
+    new IntersectionObserver(
+
+        function(entradas) {
+
+            entradas.forEach(
+                function(entrada) {
+
+                    if (
+                        entrada.isIntersecting
+                    ) {
+
+                        entrada.target
+                            .classList
+                            .add("visible");
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: 0.15
+        }
+    );
+
+
+elementos.forEach(
+    function(elemento) {
+
+        observador.observe(
+            elemento
+        );
+
+    }
+);
+
 
 </script>
 

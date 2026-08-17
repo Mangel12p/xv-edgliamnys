@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XV Años | Edgliamnys A. Fragoza M.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Cinzel', serif;
+    background:#000;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+h1{
+    font-family:'Great Vibes', cursive;
+    font-size:4rem;
+    color:#ff3b3b;
+}
+
+h2{
+    font-family:'Great Vibes', cursive;
+    font-size:3rem;
+    color:#ff3b3b;
+    margin-bottom:20px;
+}
+
+.fecha{
+    font-size:1.2rem;
+    margin-top:15px;
+}
+
+.padres{
+    margin-top:20px;
+    line-height:2;
+}
+
+.contador{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:35px;
+}
+
+.box{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    padding:20px;
+    width:90px;
+    border-radius:15px;
+}
+
+.box span{
+    font-size:2rem;
+    color:#ff3b3b;
+    font-weight:bold;
+}
+
+section{
+    padding:80px 20px;
+}
+
+.card{
+    max-width:800px;
+    margin:auto;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    padding:35px;
+    border-radius:25px;
+}
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:15px 35px;
+    background:#ff3b3b;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.texto{
+    line-height:2;
+    max-width:850px;
+    margin:auto;
+}
+
+.rojo{
+    color:#ff3b3b;
+    font-weight:bold;
+}
+
+footer{
+    padding:40px;
+    background:#111;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1>Mis XV Años</h1>
+
+<p style="font-size:1.4rem;margin-top:20px;">
+Edgliamnys A. Fragoza M.
+</p>
+
+<div class="fecha">
+📅 5 de Septiembre de 2026<br>
+🕣 8:30 PM
+</div>
+
+<div class="padres">
+Con la bendición de Dios y el amor de mis padres<br><br>
+
+❤️ Helen Morillo<br>
+❤️ Alexander Fragoza
+</div>
+
+<div class="contador">
+
+<div class="box">
+<span id="dias">00</span>
+<p>Días</p>
+</div>
+
+<div class="box">
+<span id="horas">00</span>
+<p>Horas</p>
+</div>
+
+<div class="box">
+<span id="minutos">00</span>
+<p>Min</p>
+</div>
+
+<div class="box">
+<span id="segundos">00</span>
+<p>Seg</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>La Recepción</h2>
+
+<p>
+Club La Principal
+</p>
+
+<br>
+
+<a class="btn" href="#" target="_blank">
+📍 Ver Ubicación
+</a>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="texto">
+
+<h2>¿Asistirás?</h2>
+
+<p>
+Será increíble contar con tu presencia.
+<br>
+Por favor confirma tu asistencia.
+</p>
+
+<br>
+
+<a class="btn"
+href="https://wa.me/529611160683?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Edgliamnys">
+CONFIRMAR
+</a>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>Lluvia de Sobres</h2>
+
+<p>
+Tu presencia es mi mejor regalo,
+pero si deseas tener un detalle conmigo,
+agradeceré tu muestra de cariño mediante lluvia de sobres.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>Vestimenta</h2>
+
+<p>
+Elegante 👗🤵
+</p>
+
+<br>
+
+<p>
+Color reservado para la quinceañera:
+<span class="rojo">ROJO ❤️</span>
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Gracias por acompañarme</h2>
+
+<p>
+Te espero para compartir una noche inolvidable.
+</p>
+
+<br>
+
+<h1 style="font-size:3rem;">
+Edgliamnys
+</h1>
+
+</section>
+
+<footer>
+XV Años 2026 ✨
+</footer>
+
+<script>
+
+const fechaEvento = new Date("September 5, 2026 20:30:00").getTime();
+
+setInterval(() => {
+
+const ahora = new Date().getTime();
+const diferencia = fechaEvento - ahora;
+
+const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+document.getElementById("dias").innerHTML = dias;
+document.getElementById("horas").innerHTML = horas;
+document.getElementById("minutos").innerHTML = minutos;
+document.getElementById("segundos").innerHTML = segundos;
+
+},1000);
+
+</script>
+
+</body>
+</html>
